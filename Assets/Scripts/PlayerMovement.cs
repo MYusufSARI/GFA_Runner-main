@@ -4,48 +4,53 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-	[SerializeField] private float _forwardSpeed;
+    [SerializeField] private float _forwardSpeed;
 
-	[SerializeField] private float _horizontalSpeed;
+    [SerializeField] private float _horizontalSpeed;
 
-	[SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private Rigidbody _rigidbody;
 
-	[SerializeField] private bool isOnGround = true;
+    [SerializeField] private bool isOnGround = true;
 
-	[SerializeField] private float jumpPower;
+    [SerializeField] private float jumpPower;
 
     private Vector3 _velocity = new Vector3();
 
-	public float maxHorizontalDistance;
+    public float maxHorizontalDistance;
 
-	private void Start()
-	{
-		
-	}
+    private void Start()
+    {
 
-	 void Update()
-	{
-		_velocity.z = _forwardSpeed;
-		_velocity.y = _rigidbody.velocity.y;
-		_velocity.x = Input.GetAxis("Horizontal") * _horizontalSpeed;
+    }
 
-		if (Input.GetKeyDown(KeyCode.Space)&&isOnGround)
-		{
-			_rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
-			isOnGround = false;
-		}
-	}
+    void Update()
+    {
+        if (!GameInstance.Instance.IsGameStarted)
+        {
+            _velocity = Vector3.zero;
+            return;
+        }
+        _velocity.z = _forwardSpeed;
+        _velocity.y = _rigidbody.velocity.y;
+        _velocity.x = Input.GetAxis("Horizontal") * _horizontalSpeed;
+
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        {
+            _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+            isOnGround = false;
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
-		if (collision.gameObject.CompareTag("Ground"))
-		{
-			isOnGround = true;
-		}
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
+        }
     }
 
     private void FixedUpdate()
-	{
+    {
         if (Mathf.Abs(_rigidbody.position.x) > maxHorizontalDistance)
         {
             var clampedPosition = _rigidbody.position;
@@ -58,5 +63,5 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody.velocity = _velocity;
 
 
-	}
+    }
 }

@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform target;
 
-    private Vector3 offset=new Vector3(0,2f,-7);
+    private Vector3 offset = new Vector3(0, 2f, -7);
 
     // Update is called once per frame
     void Update()
