@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 		
 	}
 
-	private void Update()
+	 void Update()
 	{
 		_velocity.z = _forwardSpeed;
 		_velocity.y = _rigidbody.velocity.y;
