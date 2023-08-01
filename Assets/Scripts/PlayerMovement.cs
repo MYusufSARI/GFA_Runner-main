@@ -14,6 +14,13 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float jumpPower;
 
+    public float JumpPower
+    {
+        get => jumpPower;
+
+        set => jumpPower = value;
+    }
+
     private Vector3 _velocity = new Vector3();
 
     public float maxHorizontalDistance;

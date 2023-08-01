@@ -61,6 +61,8 @@ public class GameInstance : MonoBehaviour
         }
     }
 
+    public float GoldMultiplier { get; set; } = 1;
+
     private int _level;
 
     public int Level
