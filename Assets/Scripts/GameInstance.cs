@@ -61,6 +61,8 @@ public class GameInstance : MonoBehaviour
         }
     }
 
+    public float GoldMultiplier { get; set; } = 1;
+
     private int _level;
 
     public int Level
@@ -73,6 +75,16 @@ public class GameInstance : MonoBehaviour
 
             LevelChanged?.Invoke(_level);
         }
+    }
+
+    public void LoadCureentLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void Win()
