@@ -75,6 +75,16 @@ public class GameInstance : MonoBehaviour
         }
     }
 
+    public void LoadCureentLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void Win()
     {
         Level++;

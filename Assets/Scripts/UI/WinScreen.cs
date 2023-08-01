@@ -21,6 +21,6 @@ public class WinScreen : MonoBehaviour
 
     private void OnNextLevelButtonPressed()
     {
-       
+        GameInstance.Instance.LoadCureentLevel();
     }
 }
