@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2863801059336073319}
   - component: {fileID: 878275407469317106}
-  - component: {fileID: 1343282775351312752}
+  - component: {fileID: 4534706961487173496}
   m_Layer: 0
   m_Name: BootsBooster
   m_TagString: Untagged
@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _booster: {fileID: 11400000, guid: 73e2aae163f484e54babdd2cad3e8dce, type: 2}
---- !u!135 &1343282775351312752
-SphereCollider:
+--- !u!65 &4534706961487173496
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -62,11 +62,11 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &282419002924262831
 PrefabInstance:
@@ -126,6 +126,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 85e85baa40a6347398a6ef3eb596903a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a2adb7696a944b739996de1778c4f6b, type: 2}
     - target: {fileID: 919132149155446097, guid: 85e85baa40a6347398a6ef3eb596903a,
         type: 3}
       propertyPath: m_Name
