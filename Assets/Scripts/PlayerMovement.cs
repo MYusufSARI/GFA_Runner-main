@@ -46,9 +46,11 @@ public class PlayerMovement : MonoBehaviour
             _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
             isOnGround = false;
         }
+
+        
     }
 
-    private void OnCollisionEnter(Collision collision)
+     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {

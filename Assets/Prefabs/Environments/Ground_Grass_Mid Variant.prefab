@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: de79852e212b14133b2f6400a82b7607,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.49
+      value: 31.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de79852e212b14133b2f6400a82b7607,
         type: 3}
@@ -62,6 +62,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Grass_Mid Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de79852e212b14133b2f6400a82b7607,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
