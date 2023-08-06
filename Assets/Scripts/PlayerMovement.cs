@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float jumpPower;
 
+    
+
     public float JumpPower
     {
         get => jumpPower;
@@ -43,14 +45,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
+            
             _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
             isOnGround = false;
         }
 
-        
+
     }
 
-     public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
