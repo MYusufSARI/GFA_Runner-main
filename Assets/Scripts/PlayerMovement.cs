@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Rigidbody _rigidbody;
 
-    [SerializeField] private bool isOnGround = true;
+
+    
 
     [SerializeField] private float jumpPower;
 
@@ -25,12 +27,15 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 _velocity = new Vector3();
 
+    public Vector3 Velocity => _rigidbody.velocity;
+
     public float maxHorizontalDistance;
 
-    private void Start()
-    {
+    private bool isOnGround = true;
 
-    }
+    public bool IsGrounded => isOnGround;
+
+    public event Action Jumped;
 
     void Update()
     {
@@ -39,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
             _velocity = Vector3.zero;
             return;
         }
+
         _velocity.z = _forwardSpeed;
         _velocity.y = _rigidbody.velocity.y;
         _velocity.x = Input.GetAxis("Horizontal") * _horizontalSpeed;
@@ -47,6 +53,9 @@ public class PlayerMovement : MonoBehaviour
         {
             
             _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+
+            Jumped?.Invoke();
+
             isOnGround = false;
         }
 

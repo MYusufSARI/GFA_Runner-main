@@ -18,9 +18,10 @@ public class BoosterDisplay : MonoBehaviour
         _boosterIcon.sprite = BoosterInstance.Booster.Icon;
     }
 
+
     private void Update()
     {
         _fillBar.fillAmount = BoosterInstance.RemainingDuration / BoosterInstance.Booster.Duration;
-
     }
+
 }
