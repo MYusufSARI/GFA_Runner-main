@@ -25,37 +25,20 @@ public class JumpTrajectoryInstantiator : MonoBehaviour
     [SerializeField]
     private bool _useAnimationCurve;
 
-    private List<GameObject> _instanceList = new List<GameObject>();
-
-    private void OnValidate()
-    {
-        CreateObjects();
-    }
 
     private void Start()
     {
         CreateObjects();
     }
 
-#if UNITY_EDITOR
-    // it seems, for Destroy calls to be working inside OnValidate event, we have to call a coroutine.
-    private IEnumerator RemoveDelayed(GameObject obj)
-    {
-        yield return null;
-        DestroyImmediate(obj);
-    }
-#endif
 
     private void CreateObjects()
     {
         foreach (Transform c in transform)
         {
-#if UNITY_EDITOR
-            StartCoroutine(RemoveDelayed(c.gameObject));
-#else
             Destroy(c.gameObject);
-#endif
         }
+
 
         for (int i = 0; i < _instanceCount; i++)
         {
