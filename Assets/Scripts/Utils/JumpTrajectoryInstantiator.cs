@@ -31,6 +31,43 @@ public class JumpTrajectoryInstantiator : MonoBehaviour
         CreateObjects();
     }
 
+    private void OnDrawGizmos()
+    {
+        for (int i = 0; i < _instanceCount -1 ; i++)
+        {
+            Vector3 startPosition = new Vector3();
+
+            Vector3 endPosition = new Vector3();
+
+
+            // _distance / 2 == _distance * 0.5f;
+            float startTime = (float)i / (_instanceCount - 1);
+
+            float endTime = (float)(i + 1) / (_instanceCount - 1);
+
+
+            startPosition.z = Mathf.Lerp(-_distance * 0.5f, _distance * 0.5f, startTime);
+
+            endPosition.z = Mathf.Lerp(-_distance * 0.5f, _distance * 0.5f, endTime);
+
+
+            if (_useAnimationCurve)
+            {
+                startPosition.y = _curve.Evaluate(startTime) * _magnitude;
+
+                endPosition.y = _curve.Evaluate(endTime) * _magnitude;
+
+            }
+            else
+            {
+                startPosition.y = Mathf.Sin(startTime * Mathf.PI) * _magnitude;
+
+                endPosition.y = Mathf.Sin(endTime * Mathf.PI) * _magnitude;
+
+            }
+        }
+    }
+
 
     private void CreateObjects()
     {
