@@ -47,7 +47,7 @@ public class JumpTrajectoryInstantiator : MonoBehaviour
 
 
             startPosition.z = Mathf.Lerp(-_distance * 0.5f, _distance * 0.5f, startTime);
-
+             
             endPosition.z = Mathf.Lerp(-_distance * 0.5f, _distance * 0.5f, endTime);
 
 
@@ -65,6 +65,8 @@ public class JumpTrajectoryInstantiator : MonoBehaviour
                 endPosition.y = Mathf.Sin(endTime * Mathf.PI) * _magnitude;
 
             }
+
+            Gizmos.DrawLine(transform.position + startPosition, transform.position + endPosition);
         }
     }
 
