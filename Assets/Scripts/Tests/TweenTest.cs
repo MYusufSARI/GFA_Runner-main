@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class TweenTest : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private AnimationCurve _curve;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        transform
+            .DOMove(new Vector3(0, 10, 0), 1)
+            .SetEase(_curve);
     }
 }
+
+
+    
